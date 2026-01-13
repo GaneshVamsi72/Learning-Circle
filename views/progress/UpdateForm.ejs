@@ -1,0 +1,73 @@
+<% layout('layouts/BaseLayout') %>
+
+<div class="form-wrapper">
+  <div class="form-card">
+    <h3 class="form-title">Edit Progress</h3>
+    <p class="form-subtitle">
+      Update details or correct mistakes
+    </p>
+
+    <form
+      action="/groups/<%= progress.group %>/progress/<%= progress._id %>/update"
+      method="POST"
+    >
+      <div class="mb-3">
+        <label class="form-label">Topic</label>
+        <input
+          name="progress[topic]"
+          class="form-control"
+          value="<%= progress.topic %>"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Resource</label>
+        <input
+          name="progress[resource]"
+          class="form-control"
+          value="<%= progress.resource %>"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+            <label class="form-label">Completed Units</label>
+            <input
+            type="number"
+            name="progress[completedUnits]"
+            class="form-control"
+            value="<%= progress.completedUnits %>"
+            required
+            />
+        </div>
+        <div class="col mb-3">
+            <label class="form-label">Total Units</label>
+            <input
+            type="number"
+            name="progress[totalUnits]"
+            class="form-control"
+            value="<%= progress.totalUnits %>"
+            required
+            />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Deadline</label>
+        <input
+          type="date"
+          name="progress[deadline]"
+          class="form-control"
+          value="<%= progress.deadline.toISOString().split('T')[0] %>"
+          required
+        />
+      </div>
+
+      <button class="btn btn-primary w-100">
+        Update Progress
+      </button>
+    </form>
+  </div>
+</div>

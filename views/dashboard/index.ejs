@@ -1,0 +1,42 @@
+<% layout('layouts/BaseLayout') %>
+
+<div class="dashboard-header">
+  <div>
+    <h3>My Groups</h3>
+    <p class="text-muted mb-0">
+      Track progress and stay accountable with your friends
+    </p>
+  </div> 
+
+  <div class="dashboard-actions">
+    <a href="/groups/join" class="btn btn-outline-secondary">
+      Join via Code
+    </a>
+    <a href="/groups/new" class="btn btn-primary">
+      + Create Group
+    </a>
+  </div>
+</div>
+
+<hr />
+
+<% if (groups.length === 0) { %>
+  <div class="empty-state">
+    <p>You are not part of any group yet.</p>
+    <p class="text-muted">
+      Create a new group or join one using an invite code.
+    </p>
+  </div>
+<% } else { %>
+  <div class="group-grid">
+    <% groups.forEach(group => { %>
+      <a href="/groups/<%= group._id %>" class="group-card">
+        <h4 class="mt-3"><%= group.name %></h4>
+        <small class="text-muted">
+          Members: <%= group.members.length %>
+        </small>
+        <p class="text-primary mt-3">Click to view progress</p>
+      </a>
+      <% }) %>
+  </div>
+<% } %>

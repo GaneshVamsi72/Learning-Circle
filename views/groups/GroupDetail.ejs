@@ -1,0 +1,137 @@
+<% layout('layouts/BaseLayout') %>
+
+<div class="group-header group-section">
+  <div>
+    <h3 style="font-size: 2rem;" class="mb-3"><b><%= group.name %></b></h3>
+    <p class="text-muted mb-0" id="invite-code">
+      Invite Code: <strong><%= group.inviteCode %></strong>
+    </p>
+  </div>
+
+  <% if (isAdmin) { %>
+    <div class="group-actions">
+      <a href="/groups/<%= group._id %>/edit" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
+    </div>
+  <% } %>
+</div>
+
+<hr />
+
+<div class="group-control">
+  <!-- MEMBERS -->
+  <div class="group-section members">
+    <h4><b>Members</b></h4>
+    <ul class="member-list mb-0">
+      <% group.members.forEach(member => { %>
+        <li class="member-item">
+          <span class="member-name">
+            <%= member.username %>&nbsp;
+            <% if (group.admin.equals(member._id)) { %>
+              <span class="badge text-bg-primary">Admin</span>
+            <% } %>
+          </span>
+
+          <% if (isAdmin && !group.admin.equals(member._id)) { %>
+            <form
+              action="/groups/<%= group._id %>/remove/<%= member._id %>"
+              method="POST"
+              class="d-inline confirm-delete"
+            >
+              <button class="btn btn-sm btn-outline-danger">
+                ✕
+              </button>
+            </form>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <!-- ADMIN: PENDING REQUESTS -->
+  <% if (isAdmin && group.pendingRequests.length > 0) { %>
+    <div class="group-section pending-requests">
+      <h5>Pending Join Requests</h5>
+
+      <% group.pendingRequests.forEach(user => { %>
+        <div class="request-row">
+          <span style="font-weight: 500;"><%= user.username %></span>
+
+          <div class="request-actions">
+            <form
+              action="/groups/<%= group._id %>/approve/<%= user._id %>"
+              method="POST"
+              class="d-inline"
+            >
+              <button class="btn btn-sm btn-success">✓</button>
+            </form>
+
+            <form
+              action="/groups/<%= group._id %>/reject/<%= user._id %>"
+              method="POST"
+              class="d-inline confirm-delete"
+            >
+              <button class="btn btn-sm btn-outline-danger">✕</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+<hr />
+
+<div class="team-header mt-4">
+  <h4 class="mb-0"><b>Team Progress</b></h4>
+  <a href="/groups/<%= group._id %>/progress/new" class="btn btn-success btn-sm">+ Add Progress</a>
+</div>
+
+<% if (groupProgress.length === 0) { %>
+  <p class="text-muted mt-4" style="text-align: center;">No progress added yet.</p>
+<% } %>
+
+<div class="progress-list">
+  <% groupProgress.forEach(p => { %>
+    <% const percent = Math.round((p.completedUnits / p.totalUnits) * 100); %>
+    <div class="progress-card">
+      <div class="progress-top mb-3">
+        <strong style="font-size: 1.2rem;"><%= p.user.username %></strong>
+        <% if (p.user._id.equals(currentUser)) { %>
+          <span class="badge rounded-pill text-bg-primary">You</span>
+        <% } %>
+      </div>
+
+      <div class="progress-topic mb-3">
+        <div class="text-muted">Current Focus</div>
+        <div style="font-size: 1.1rem;"><%= p.topic %></div>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-info text-muted mb-2">
+        <span>Progress</span>
+        <span><%= percent %>% (<%=p.completedUnits%>/<%=p.totalUnits%>)</span>
+      </div>
+      <div class="progress" style="height: 8px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="--progress: <%= percent %>%"
+        >
+        </div>
+      </div>
+        
+      <div class="progress-meta text-muted mt-3">
+        <span>Resource: <br> <span style="font-style: italic"><%= p.resource %></span></span>
+        <span class="badge text-bg-primary">Due: <%= p.deadline.toLocaleDateString("en-In", { day: "numeric", month: "short" }) %></span>
+      </div>
+
+      <hr>
+
+      <% if (p.user._id.equals(currentUser)) { %>
+        <a href="/groups/<%= group._id %>/progress/<%= p._id %>/edit" class="btn btn-sm btn-outline-secondary mt-1"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Update Progress</a>
+      <% } %>
+    </div>
+  <% }) %>
+</div>
+
+<script src="/js/confirmDelete.js"></script>

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-light border-bottom sticky-top px-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Learning Circle</a>
+
+        <div class="navbar-nav">
+            <% if (currentUser) { %>
+                <form action="/logout" method="POST" class="d-inline confirm-action">
+                    <button class="btn btn-outline-danger">Logout</button>
+                </form>
+            <% } else { %>
+                <a href="/login" class="btn btn-outline-primary">Login</a>
+                <a href="/register" class="btn btn-primary">Register</a>
+            <% } %>
+        </div>
+    </div>
+</nav>

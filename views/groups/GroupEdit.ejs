@@ -1,0 +1,26 @@
+<% layout('layouts/BaseLayout') %>
+
+<div class="form-wrapper">
+  <div class="form-card">
+    <h3 class="form-title">Edit Group</h3>
+    <p class="form-subtitle">
+      Update your group details
+    </p>
+
+    <form action="/groups/<%= group._id %>" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Group Name</label>
+        <input
+          name="group[name]"
+          class="form-control"
+          value="<%= group.name %>"
+          required
+        />
+      </div>
+
+      <button class="btn btn-primary w-100">
+        Update Group
+      </button>
+    </form>
+  </div>
+</div>

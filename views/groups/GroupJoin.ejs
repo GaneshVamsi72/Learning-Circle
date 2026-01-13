@@ -1,0 +1,26 @@
+<% layout('layouts/BaseLayout.ejs') %>
+
+<div class="form-wrapper">
+  <div class="form-card">
+    <h3 class="form-title">Join a Group</h3>
+    <p class="form-subtitle">
+      Enter the invite code shared by your friend
+    </p>
+
+    <form action="/groups/join" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Invite Code</label>
+        <input
+          name="inviteCode"
+          class="form-control"
+          placeholder="Eg: a3f92b1c"
+          required
+        />
+      </div>
+
+      <button class="btn btn-primary w-100">
+        Request to Join
+      </button>
+    </form>
+  </div>
+</div>

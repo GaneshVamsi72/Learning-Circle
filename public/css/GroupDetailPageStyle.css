@@ -1,0 +1,124 @@
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#invite-code {
+  background-color: #f8f9fb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid lightgrey;
+}
+
+.group-control {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.5rem;
+}
+
+.group-section {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.members {
+  padding: 1.5rem;
+}
+
+.member-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+.member-item:last-child {
+  border-bottom: none;
+}
+
+.member-name {
+  font-size: 0.95rem;
+}
+
+.pending-requests {
+  background-color: #fff7ed80;
+  border: 2px solid #fed7aa;
+  padding: 1.5rem;
+}
+
+.pending-requests h5 {
+  color: #9a3412;
+}
+
+.request-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background-color: #f8f9fb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid lightgrey;
+}
+
+.request-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-list {
+  margin-top: 1rem;
+}
+
+.progress-card {
+  background: white;
+  padding: 1.5rem;
+  border: 1px solid rgba(13, 110, 253, 0.5);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.progress-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  width: var(--progress);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-topic {
+  font-weight: 500;
+  margin-top: 0.25rem;
+}

@@ -1,0 +1,41 @@
+<% layout('layouts/BaseLayout.ejs') %>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h3 class="auth-title">Welcome Back</h3>
+    <p class="auth-subtitle">Login to continue your learning journey</p>
+
+    <form action="/login" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input
+          name="user[username]"
+          class="form-control"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password <span id="togglePassword" class="password-toggle">👁️</span></label>
+        <input
+          type="password"
+          name="user[password]"
+          class="form-control"
+          placeholder="Enter your password"
+          id="password"
+          required
+        />
+      </div>
+
+      <button class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <p class="auth-footer">
+      Don’t have an account?
+      <a href="/register">Register</a>
+    </p>
+  </div>
+</div>
+
+<script src="/js/passwordToggle.js"></script>

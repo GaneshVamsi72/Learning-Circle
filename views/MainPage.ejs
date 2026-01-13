@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Learning Circle</title>
+        <link rel="icon" type="image/svg+xml" href="/assets/diagram-project-solid-full.svg">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/css/BaseLayoutStyle.css">
+        <link rel="stylesheet" href="/css/MainPageStyle.css">
+    </head>
+    <body>  
+        <%- include('./partials/navbar') %>
+        <main class="container">
+            <section class="hero">
+                <h1>Learning Circle</h1>
+                <p class="tagline">
+                    Track learning. Stay accountable. Grow together.
+                </p>
+
+                <p class="description">
+                    Learning Circle helps friends learn together by sharing progress,
+                    deadlines, and resources — privately, honestly, and consistently.
+                </p>
+
+                <div class="creator-section">
+                    <h5 class="creator-title">Developed & Maintained By</h5>
+
+                    <p class="creator-name">
+                        <strong>T. S. Ganesh Vamsi</strong>
+                    </p>
+                </div>
+
+                <div class="hero-actions">
+                    <% if (!currentUser) { %>
+                        <a href="/register" class="btn btn-primary">Get Started</a>
+                    <% } else { %>
+                        <a href="/dashboard" class="btn btn-success">Go to Dashboard</a>
+                    <% } %>
+                </div>
+            </section>
+
+            <!-- <section class="creator-section">
+                <hr />
+                <div class="creator-card">
+                    <h5 class="creator-title">Developed & Maintained By</h5>
+
+                    <p class="creator-name">
+                        <strong>T. S. Ganesh Vamsi</strong>
+                    </p>
+
+                    <p class="creator-meta">
+                        Roll No: 23A31A0559 <br />
+                        CSE'27 Student At Pragati Engineering College
+                    </p>
+
+                    <p class="creator-purpose">
+                        This is built to help us stay consistent,
+                        accountable, and motivated while learning together.
+                    </p>
+
+                    <div class="creator-links">
+                        <a
+                            href="https://github.com/GaneshVamsi72"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/sri-ganesh-vamsi-tummalapalli-81a3412b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                        </a>
+
+                        <a href="mailto:ganeshvamsi0@gmail.com">
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+        <%- include('./partials/footer') %>   
+        <script src="/js/confirmation.js"></script> 
+    </body>
+</html>

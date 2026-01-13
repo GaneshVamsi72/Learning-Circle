@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero {
+  max-width: 700px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.description {
+  margin-top: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.creator-section {
+  margin-top: 1rem;
+}
+
+.creator-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.creator-title {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.creator-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.creator-meta {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.8rem;
+}
+
+.creator-purpose {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.creator-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.creator-links a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #0d6efd;
+}
+
+.creator-links a:hover {
+  text-decoration: underline;
+}
