@@ -35,21 +35,23 @@
         <div class="col mb-3">
             <label class="form-label">Completed Units</label>
             <input
-            type="number"
-            name="progress[completedUnits]"
-            class="form-control"
-            value="<%= progress.completedUnits %>"
-            required
+              type="number"
+              name="progress[completedUnits]"
+              class="form-control"
+              value="<%= progress.completedUnits %>"
+              min="0"
+              required
             />
         </div>
         <div class="col mb-3">
             <label class="form-label">Total Units</label>
             <input
-            type="number"
-            name="progress[totalUnits]"
-            class="form-control"
-            value="<%= progress.totalUnits %>"
-            required
+              type="number"
+              name="progress[totalUnits]"
+              class="form-control"
+              value="<%= progress.totalUnits %>"
+              min="1"
+              required
             />
         </div>
       </div>

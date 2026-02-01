@@ -1,5 +1,6 @@
 # Ignore all node_modules folders
 **/node_modules/
+**/FrontendGoal/
 
 # Ignore environment variables (if any)
 .env
